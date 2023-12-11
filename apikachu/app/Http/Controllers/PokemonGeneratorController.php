@@ -20,12 +20,7 @@ class PokemonGeneratorController extends Controller
             'name' => 'required|string|max:255',
         ]);
 
-        $generatedPokemon = $this->openAiClient->openAiClient()->completions()->create([
-            'model' => 'gpt-3.5-turbo-instruct',
-            'prompt' => 'Make a pokemon with this user input string: ' . $request->name . '',
-            'max_tokens' => 255,
-            'temperature' => 0
-        ]);
+        $generatedPokemon = $this->openAiClient->generatePokemon($request->name);
 
         return response()->json($generatedPokemon);
     }
