@@ -143,12 +143,16 @@ Ability {
 Pokemon {
     int id
     bigint generation_id
+    bigint next_generation_id
     string name
     string description
     string image_url
     int hp
     int attack
     int defense
+    int speed
+    int special_attack
+    int special_defense
 }
 
 Ability_Pokemon {
