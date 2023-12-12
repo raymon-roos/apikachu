@@ -28,7 +28,8 @@ return new class extends Migration
                 ->nullOnDelete();
             $table->string('name')
                 ->unique();
-            $table->mediumText('description');
+            $table->mediumText('description')
+                ->nullable();
             $table->string('image_url');
             $table->mediumInteger('hp');
             $table->mediumInteger('attack');

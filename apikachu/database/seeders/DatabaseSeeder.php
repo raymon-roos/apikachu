@@ -11,6 +11,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        $this->call(GenerationSeeder::class);
+        $this->call(AbilitySeeder::class);
+        $this->call(TypeSeeder::class);
+        $this->call(PokemonSeeder::class);
+        $this->call(AbilityPokemonSeeder::class);
+        $this->call(PokemonTypeSeeder::class);
     }
 }

@@ -2,7 +2,8 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Type;
+use App\Services\PokeApi;
 use Illuminate\Database\Seeder;
 
 class TypeSeeder extends Seeder
@@ -12,6 +13,9 @@ class TypeSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        Type::upsert(array_map(
+            fn (string $type) => ['name' => $type],
+            array_column(PokeApi::getMultiple('type'), 'name')
+        ), 'name');
     }
 }

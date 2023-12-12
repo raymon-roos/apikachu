@@ -2,11 +2,8 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Generation;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\Http;
-use App\Services\PokeApiRequest;
-use Illuminate\Support\Facades\Storage;
 
 class GenerationSeeder extends Seeder
 {
@@ -15,6 +12,13 @@ class GenerationSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        Generation::insertOrIgnore([
+            ['generation' => 1],
+            ['generation' => 2],
+            ['generation' => 3],
+            ['generation' => 4],
+            ['generation' => 5],
+            ['generation' => 6],
+        ], ['generation']);
     }
 }
