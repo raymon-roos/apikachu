@@ -21,7 +21,7 @@ class PokemonGeneratorController extends Controller
         ]);
 
         $generatedPokemonResponse = $this->openAiClient->generatePokemon($request->name);
-
+        
         foreach ($generatedPokemonResponse->choices as $result) {
             $generatedPokemon = $result->message->toolCalls[0]->function->arguments;
         }
