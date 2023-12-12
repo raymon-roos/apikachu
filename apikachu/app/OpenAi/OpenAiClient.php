@@ -27,6 +27,16 @@ class OpenAiClient
         return $response;
     }
 
+    public function generatePokemonImage($prompt)
+    {
+        $generatedPokemonImage = $this->openAi->images()->create([
+            'model' => 'dall-e-3',
+            'prompt' => $prompt,
+        ]);
+
+        return $generatedPokemonImage;
+    }
+
     public function generatePokemon($name)
     {
         $generatedPokemon = $this->openAi->chat()->create([
