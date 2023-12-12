@@ -32,8 +32,6 @@ class OpenAiClient
         $generatedPokemonImage = $this->openAi->images()->create([
             'model' => 'dall-e-3',
             'prompt' => $prompt,
-            'response_format' => 'b64_json',
-            'size' => '1024x1024',
         ]);
 
         return $generatedPokemonImage;
