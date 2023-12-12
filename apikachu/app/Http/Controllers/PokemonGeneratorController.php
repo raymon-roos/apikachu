@@ -26,8 +26,6 @@ class PokemonGeneratorController extends Controller
             $generatedPokemon = $result->message->toolCalls[0]->function->arguments;
         }
 
-        dd($generatedPokemon);
-
-        return response()->json($generatedPokemon);
+        return $generatedPokemon;
     }
 }

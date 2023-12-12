@@ -32,7 +32,7 @@ class OpenAiClient
         $generatedPokemon = $this->openAi->chat()->create([
             'model' => 'gpt-3.5-turbo',
             'messages' => [
-                ['role' => 'system', 'content' => 'Some random pokemon a user would want you to generate'],   
+                ['role' => 'system', 'content' => 'Create a valid JSON response of some random pokemon a user would want you to generate'],   
                 ['role' => 'user', 'content' => $name],
             ],
             'tools' => [
