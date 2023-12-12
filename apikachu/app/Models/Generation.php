@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Generation extends Model
 {
@@ -23,7 +24,7 @@ class Generation extends Model
         'updated_at',
     ];
 
-    public function pokemon()
+    public function pokemons(): HasMany
     {
         return $this->hasMany(Pokemon::class);
     }
