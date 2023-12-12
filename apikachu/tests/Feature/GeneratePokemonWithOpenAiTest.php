@@ -16,9 +16,7 @@ class GeneratePokemonWithOpenAiTest extends TestCase
         $response = $this->post('/api/generate', [
             'name' => 'beach'
         ]);
-
-        dd($response->getContent());
-
+        
         $response->assertStatus(200);
         $response->assertJsonStructure([
             'generation_id',
