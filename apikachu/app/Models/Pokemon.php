@@ -31,6 +31,16 @@ class Pokemon extends Model
         'special_defense',
     ];
 
+    /**
+     * The attributes that should be hidden for serialization.
+     *
+     * @var array<int, string>
+     */
+    protected $hidden = [
+        'created_at',
+        'updated_at',
+    ];
+
     public function generation()
     {
         return $this->belongsTo(Generation::class);

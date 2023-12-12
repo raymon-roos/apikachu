@@ -12,7 +12,7 @@ class GenerationController extends Controller
      */
     public function index()
     {
-        //
+        return Generation::paginate();
     }
 
     /**
@@ -28,7 +28,7 @@ class GenerationController extends Controller
      */
     public function show(Generation $generation)
     {
-        //
+        return $generation;
     }
 
     /**

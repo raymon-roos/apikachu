@@ -12,7 +12,7 @@ class PokemonController extends Controller
      */
     public function index()
     {
-        //
+        return Pokemon::paginate();
     }
 
     /**
@@ -28,7 +28,7 @@ class PokemonController extends Controller
      */
     public function show(Pokemon $pokemon)
     {
-        //
+        return $pokemon;
     }
 
     /**

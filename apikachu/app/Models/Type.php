@@ -14,6 +14,16 @@ class Type extends Model
         'name',
     ];
 
+    /**
+     * The attributes that should be hidden for serialization.
+     *
+     * @var array<int, string>
+     */
+    protected $hidden = [
+        'created_at',
+        'updated_at',
+    ];
+
     public function pokemons(): BelongsToMany
     {
         return $this->belongsToMany(Pokemon::class);

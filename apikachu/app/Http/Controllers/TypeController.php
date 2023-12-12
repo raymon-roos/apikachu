@@ -12,7 +12,7 @@ class TypeController extends Controller
      */
     public function index()
     {
-        //
+        return Type::paginate();
     }
 
     /**
@@ -28,7 +28,7 @@ class TypeController extends Controller
      */
     public function show(Type $type)
     {
-        //
+        return $type;
     }
 
     /**

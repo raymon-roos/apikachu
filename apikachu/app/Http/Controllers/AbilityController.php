@@ -12,7 +12,7 @@ class AbilityController extends Controller
      */
     public function index()
     {
-        //
+        return Ability::paginate();
     }
 
     /**
@@ -28,7 +28,7 @@ class AbilityController extends Controller
      */
     public function show(Ability $ability)
     {
-        //
+        return $ability;
     }
 
     /**
