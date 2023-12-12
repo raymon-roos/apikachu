@@ -13,9 +13,11 @@ class GeneratePokemonWithOpenAiTest extends TestCase
      */
     public function test_response_generating_random_pokemon(): void
     {
-            $response = $this->post('/api/generate', [
-            'name' => 'Create a valid JSON array of these types: bigint generation_id, string name, string description, int hp, int attack, int defense, of some random pokemon a user would want you to generate'
+        $response = $this->post('/api/generate', [
+            'name' => 'beach'
         ]);
+
+        dd($response->getContent());
 
         $response->assertStatus(200);
         $response->assertJsonStructure([

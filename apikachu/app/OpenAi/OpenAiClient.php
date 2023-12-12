@@ -29,13 +29,55 @@ class OpenAiClient
 
     public function generatePokemon($name)
     {
-        $generatedPokemon = $this->openAi->completions()->create([
-            'model' => 'gpt-3.5-turbo-instruct',
-            'prompt' => 'Make a pokemon with this user input string: ' . $name . '',
+        $generatedPokemon = $this->openAi->chat()->create([
+            'model' => 'gpt-3.5-turbo',
+            'messages' => [
+                ['role' => 'system', 'content' => 'Some random pokemon a user would want you to generate'],   
+                ['role' => 'user', 'content' => $name],
+            ],
+            'tools' => [
+                [
+                'type' => 'function',
+                'function' => [
+                    'name' => 'pokemon_generator',
+                    'description' => 'Generate a random pokemon with the given name or description',
+                    'parameters' => [
+                        'type' => 'object',
+                        'properties' => [
+                            'name' => [
+                                'type' => 'string',
+                                'description' => 'pokemon name',
+                            ],
+                            'description' => [
+                                'type' => 'string',
+                                'description' => 'pokemon description',
+                            ],
+                            'hp' => [
+                                'type' => 'integer',
+                                'description' => 'pokemon hp',
+                            ],
+                            'attack' => [
+                                'type' => 'integer',
+                                'description' => 'pokemon attack',
+                            ],
+                            'defense' => [
+                                'type' => 'integer',
+                                'description' => 'pokemon defense',
+                            ],
+                            'generation_id' => [
+                                'type' => 'integer',
+                                'description' => 'pokemon generation id, at the moment 10 because we are in generation 10',
+                            ],
+                        ],
+                            'required' => ['name', 'description', 'hp', 'attack', 'defense', 'generation_id'],
+                        ],
+                    ],
+                ],
+            ],
             'max_tokens' => 255,
-            'temperature' => 0.5
+            'temperature' => 0.9,
         ]);
 
-        return $generatedPokemon->choices[0]->text;
+        return $generatedPokemon;
     }   
 }

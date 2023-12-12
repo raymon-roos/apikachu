@@ -20,7 +20,13 @@ class PokemonGeneratorController extends Controller
             'name' => 'required|string|max:255',
         ]);
 
-        $generatedPokemon = $this->openAiClient->generatePokemon($request->name);
+        $generatedPokemonResponse = $this->openAiClient->generatePokemon($request->name);
+
+        foreach ($generatedPokemonResponse->choices as $result) {
+            $generatedPokemon = $result->message->toolCalls[0]->function->arguments;
+        }
+
+        dd($generatedPokemon);
 
         return response()->json($generatedPokemon);
     }
