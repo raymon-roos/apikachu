@@ -8,4 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Generation extends Model
 {
     use HasFactory;
+    
+    protected $fillable = [
+        'generation',
+    ];
+
+    public function pokemon()
+    {
+        return $this->hasMany(Pokemon::class);
+    }
 }
