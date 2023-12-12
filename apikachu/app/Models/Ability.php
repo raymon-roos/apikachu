@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Ability extends Model
 {
@@ -15,8 +16,8 @@ class Ability extends Model
         'power',
     ];
 
-    public function pokemon()
+    public function pokemons(): BelongsToMany
     {
-        return $this->belongsTo(Pokemon::class);
+        return $this->belongsToMany(Pokemon::class);
     }
 }

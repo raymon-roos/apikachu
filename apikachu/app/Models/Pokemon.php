@@ -4,10 +4,18 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Pokemon extends Model
 {
     use HasFactory;
+
+    /**
+     * The table associated with the model, eloquent can't guess the plural of "pokemon".
+     *
+     * @var string
+     */
+    protected $table = 'pokemons';
 
     protected $fillable = [
         'generation_id',
@@ -28,13 +36,13 @@ class Pokemon extends Model
         return $this->belongsTo(Generation::class);
     }
 
-    public function ability()
+    public function abilities(): BelongsToMany
     {
-        return $this->hasMany(Ability::class);
+        return $this->belongsToMany(Ability::class);
     }
-    
-    public function type()
+
+    public function types(): BelongsToMany
     {
-        return $this->hasOne(Type::class);
+        return $this->belongsToMany(Type::class);
     }
 }

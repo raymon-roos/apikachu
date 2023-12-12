@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Type extends Model
 {
@@ -13,8 +14,8 @@ class Type extends Model
         'name',
     ];
 
-    public function pokemon()
+    public function pokemons(): BelongsToMany
     {
-        return $this->belongsTo(Pokemon::class);
+        return $this->belongsToMany(Pokemon::class);
     }
 }
