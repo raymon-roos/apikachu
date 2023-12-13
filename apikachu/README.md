@@ -38,11 +38,15 @@ this API welcomes trainers of all levels.
 - **Retrieve the source:**
   `git clone git@git.nexed.com:raymonroos/apikachu-deep-dive.git apikachu && cd apikachu/apikachu`
 
-- **Environment**: Run `cp .env && php artisan key:generate` to set up your
-  environment variables. Then copy and paste the .env.example file into the new .env file you just created. 
-  Note that you have to set the right database credentials for your
+- **Environment**: Run `cp .env.example .env && php artisan key:generate` to set up your
+  environment variables. Note that you have to set the right database credentials for your
   system. At the Bit Academy, we have a convention for what database user to use, but you
   may choose your own and update `.env` accordingly.
+
+- **Connect OpenAI**: [Create an OpenAI account](https://platform.openai.com/signup),
+  [purchase credits](https://platform.openai.com/account/billing/overview). Then [create
+  an Api key](https://platform.openai.com/api-keys). Add your key to the `OPENAI_API_KEY`
+  value in the `.env` file.
 
 - Create an empty database called `apikachu`. If you want a different name, update the
   value in `.env`
@@ -58,11 +62,8 @@ this API welcomes trainers of all levels.
 - **Launch:** Start your database and http servers. For convenience, you can also use 
   `php artisan serve` instead of the latter.
 
-- **Connect OpenAI with this project**: Follow this [link](https://platform.openai.com/signup) and create an Openai account then put some credits on it on this [page](https://platform.openai.com/account/billing/overview). Then create an Api key on this [page](https://platform.openai.com/api-keys) then copy and past the following at the end of your env file OPENAI_API_KEY="Your_genereated_key".
-
 - **Enjoy:** You can now explore the API at your leisure! Open `localhost/api/pokemon` in your
   browser, postman, or `curl`. 
-
 
 ## 🌐 Project Links
 
