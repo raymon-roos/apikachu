@@ -1,66 +1,71 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# APIkachu: Unleash Your Custom Pokémon Adventure! 🚀
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Welcome to APIkachu, where the magic of custom Pokémon creation comes to life!
+🌟
 
-## About Laravel
+## 🎮 Project Overview
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Embark on a thrilling journey with our APIkachu, a key component of the
+groundbreaking Pokémon Customization Platform. Imagine a world where your seed phrases
+shape the very essence of Pokémon existence. Our API seamlessly connects with OpenAI's
+ChatGPT and Dal-e, transforming your imagination into unique, never-before-seen Pokémon.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## 🌈 Why APIkachu?
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- **Unleash Creativity:** Type in your seed phrase, and watch as the API conjures Pokémon
+  born from your words.
+- **Interactive Adventures:** Explore a world where each Pokémon is a reflection of your
+  unique story.
+- **Community Collaboration:** Share your custom Pokémon creations and collaborate with
+  fellow trainers.
+- **Research:** Advance the understanding of Pokémon by hypothesizing plausible Pokémon.
 
-## Learning Laravel
+## 🛠️ Requirements
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Before you embark on your APIkachu adventure, make sure you have the following:
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+- **Web Server:** You'll need a web server such as Apache to host the APIkachu.
+- **Database Server:** APIkachu relies on a MySQL database server, such as MariaDB,
+  for storing Pokémon data.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## 🚀 Getting Started
 
-## Laravel Sponsors
+Ready to dive in? Whether you're a seasoned Pokémon Master or just starting your journey,
+this API welcomes trainers of all levels.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+- **Retrieve the source:**
+  `git clone git@git.nexed.com:raymonroos/apikachu-deep-dive.git apikachu && cd apikachu/apikachu`
 
-### Premium Partners
+- **Environment**: Run `cp .env.example .env && php artisan key:generate` to set up your
+  environment variables. Note that you have to set the right database credentials for your
+  system. At the Bit Academy, we have a convention for what database user to use, but you
+  may choose your own and update `.env` accordingly.
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+- Create an empty database called `apikachu`. If you want a different name, update the
+  value in `.env`
 
-## Contributing
+- **Libraries:** `php composer install`
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+- **Database contents:** To set up the tables, and retrieve some starting data:
+  `php artisan migrate:fresh --seed`
+  Data is retrieved from `https://pokeapi.co/api/v2/`, the first time seeding is a little
+  slow, as we don't want to spam their api. The data is saved to disk for future
+  reuse. 
 
-## Code of Conduct
+- **Launch:** Start your database and http servers. For convenience, you can also use 
+  `php artisan serve` instead of the latter.
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+- **Enjoy:** You can now explore the API at your leisure! Open `localhost/api/pokemon` in your
+  browser, postman, or `curl`. 
 
-## Security Vulnerabilities
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+## 🌐 Project Links
 
-## License
+- [Documentation](./../docs)
+- [Project Board](https://apikachu.atlassian.net/jira/software/projects/SCRUM/boards/1)
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## 🎉 Join the APIkachu Revolution!
+
+Become a part of the APIkachu revolution and bring your custom Pokémon dreams to life.
+It's time to unleash the power of imagination and redefine what it means to be a Pokémon
+Trainer! 🌟
