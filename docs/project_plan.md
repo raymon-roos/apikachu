@@ -20,12 +20,11 @@ This project facilitates exploring the space of possible Pokémon by generating 
 yet hypothetical Pokémon. In this way, we help Pokémon researchers and philosophers better
 understand our place in this Pokémon world.
 
-
 ## Target Users
 
 The target users of the Custom Pokémon API include Pokémon enthusiasts using the Pokémon
 Customization Platform. These users will leverage the API to generate custom Pokémon based
-on their seed phrases, enhancing their overall experience on the platform. 
+on their seed phrases, enhancing their overall experience on the platform.
 
 ## Scope
 
@@ -65,12 +64,10 @@ on their seed phrases, enhancing their overall experience on the platform.
 | :----------- | :----------------------------------------------------------------------------------------- | :-------------------------------------------------- | :-------------------------- | :------------ |
 | User         | Customize Pokémon based on a seed phrase                                                   | A user-friendly API endpoint for Pokémon generation | PHP Laravel API             | 30            |
 | User         | Retrieve generated Pokémon data                                                            | Access to a comprehensive API for data retrieval    | PHP Laravel API             | 30            |
-| User         | A login system so I can see my generated Pokemon                                           | Login system         
-               | PHP Laravel Login system               | 20            |
-| Developer    | Authentication and authorization system                                                    | Login system         
-               | PHP Laravel Login system               | 8             |
+| User         | A login system so I can see my generated Pokemon                                           | Login system                                        | PHP Laravel Login system    | 20            |
+| Developer    | Authentication and authorization system                                                    | Login system                                        | PHP Laravel Login system    | 8             |
 | Developer    | Have an overview of the project, requirements, wishes, constraints, technologies, planning | A project plan.                                     | project_plan.md             | 8             |
-| Developer    | Have quick and easy stakeholder onboarding                                                 | A project readme.                                   | readme.md                   | 6             |
+| Developer    | Have quick and easy stakeholder onboarding                                                 | A project readme                                    | readme.md                   | 6             |
 | Developer    | Have quick and easy developer onboarding                                                   | Set up instructions in the project readme.          | bullet point list in readme | 6             |
 
 ## Planning
@@ -144,6 +141,12 @@ Ability {
     int power
 }
 
+Move {
+    string name
+    string description
+    int power
+}
+
 Pokemon {
     int id
     bigint generation_id
@@ -161,6 +164,11 @@ Pokemon {
 
 Ability_Pokemon {
     bigint ability_id
+    bigint pokemon_id
+}
+
+Move_Pokemon {
+    bigint move_id
     bigint pokemon_id
 }
 
@@ -199,6 +207,11 @@ Pokemon_Type }|--|{ Pokemon : "has many"
 
 Ability }|--|{ Ability_Pokemon : "has many"
 Ability_Pokemon }|--|{ Pokemon : "has many"
+
+Move }|--|{ Move_Pokemon : "has many"
+Move_Pokemon }|--|{ Pokemon : "has many"
+
+Pokemon |o--o| Pokemon : "has one next_evolution"
 
 User |o--o| PersonalAccessToken : "has many"
 User |o--o{ Pokemon : "has many"
