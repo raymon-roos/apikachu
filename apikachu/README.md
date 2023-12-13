@@ -58,7 +58,7 @@ this API welcomes trainers of all levels.
 - **Launch:** Start your database and http servers. For convenience, you can also use 
   `php artisan serve` instead of the latter.
 
-- **Connect OpenAI with this project**: Follow this [link](https://platform.openai.com/api-keys) and create an Openai account then put some credits on it on this [page](https://platform.openai.com/account/billing/overview). Then create an Api key on this [page](https://platform.openai.com/api-keys) then copy and past the following at the end of your env file OPENAI_API_KEY="Your_genereated_key".
+- **Connect OpenAI with this project**: Follow this [link](https://platform.openai.com/signup) and create an Openai account then put some credits on it on this [page](https://platform.openai.com/account/billing/overview). Then create an Api key on this [page](https://platform.openai.com/api-keys) then copy and past the following at the end of your env file OPENAI_API_KEY="Your_genereated_key".
 
 - **Enjoy:** You can now explore the API at your leisure! Open `localhost/api/pokemon` in your
   browser, postman, or `curl`. 
