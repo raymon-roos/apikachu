@@ -7,11 +7,9 @@ use App\OpenAi\OpenAiClient;
 
 class PokemonGeneratorController extends Controller
 {
-    protected OpenAiClient $openAiClient;
-
-    public function __construct(OpenAiClient $openAiClient)
-    {
-        $this->openAiClient = $openAiClient;
+    public function __construct(
+        private OpenAiClient $openAiClient = new OpenAiClient()
+    ) {
     }
 
     public function generate(StoreGenerateRequest $request)
