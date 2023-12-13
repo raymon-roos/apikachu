@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\OpenAi\OpenAiClient;
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Str;
 
 class PokemonGeneratorController extends Controller
 {
@@ -21,27 +23,27 @@ class PokemonGeneratorController extends Controller
             'image' => 'required|boolean',
         ]);
 
-        if ($request->image) {
-            $generatedPokemonResponse = $this->openAiClient->generatePokemon($request->name);
-            
-            foreach ($generatedPokemonResponse->choices as $result) {
-                $generatedPokemon = json_decode($result->message->toolCalls[0]->function->arguments);
-            }
+        $name = strtolower($request->input('name'));
+        $image = strtolower($request->input('image'));
 
-        
-
-            $image = $this->generateImage($generatedPokemon->image_appearance);
-
-        }
-
-
-        $generatedPokemonResponse = $this->openAiClient->generatePokemon($request->name);
+        $generatedPokemonResponse = $this->openAiClient->generatePokemon($name);
         
         foreach ($generatedPokemonResponse->choices as $result) {
             $generatedPokemon = $result->message->toolCalls[0]->function->arguments;
         }
 
-        return $generatedPokemon;
+        $generatedPokemonArray = json_decode($generatedPokemon, true);
+
+
+        if ($image) {
+            $imageRequest = $this->generateImage($generatedPokemonArray['image_appearance']);
+            $base64String = $imageRequest->data[0]->b64_json;
+        }
+
+        $key = 'pokemonData' . Str::random();
+        Cache::put($key, ['pokemon' => $generatedPokemonArray, 'image' => $base64String], 300); // 5 minutes
+    
+        return redirect('/pokemon?key=' . $key);
     }
 
     public function generateImage($prompt)
