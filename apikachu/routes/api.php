@@ -3,7 +3,6 @@
 use App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\PokemonGeneratorController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,5 +24,6 @@ Route::resources([
     'pokemon' => Controllers\PokemonController::class,
     'type' => Controllers\TypeController::class,
     'ability' => Controllers\AbilityController::class,
+    'move' => Controllers\MoveController::class,
     'generation' => Controllers\GenerationController::class,
 ]);
