@@ -65,6 +65,10 @@ on their seed phrases, enhancing their overall experience on the platform.
 | :----------- | :----------------------------------------------------------------------------------------- | :-------------------------------------------------- | :-------------------------- | :------------ |
 | User         | Customize Pokémon based on a seed phrase                                                   | A user-friendly API endpoint for Pokémon generation | PHP Laravel API             | 30            |
 | User         | Retrieve generated Pokémon data                                                            | Access to a comprehensive API for data retrieval    | PHP Laravel API             | 30            |
+| User         | A login system so I can see my generated Pokemon                                           | Login system         
+               | PHP Laravel Login system               | 20            |
+| Developer    | Authentication and authorization system                                                    | Login system         
+               | PHP Laravel Login system               | 8             |
 | Developer    | Have an overview of the project, requirements, wishes, constraints, technologies, planning | A project plan.                                     | project_plan.md             | 8             |
 | Developer    | Have quick and easy stakeholder onboarding                                                 | A project readme.                                   | readme.md                   | 6             |
 | Developer    | Have quick and easy developer onboarding                                                   | Set up instructions in the project readme.          | bullet point list in readme | 6             |
@@ -77,11 +81,11 @@ on their seed phrases, enhancing their overall experience on the platform.
 | 1    | Set up Laravel project       | Wessel            | A fully configured Laravel project ready for API development       |
 | 2    | Pokémon Repository           | Raymon & Jonathan | Set up storage and retrieval mechanism for generated Pokémon       |
 | 2    | Seed Phrase Endpoint         | Raymon            | Implement API endpoint for generating Pokémon based on seed phrase |
-| 3    | API Integration with ChatGPT | Wessel & Gilbert  | Integrate with OpenAI ChatGPT API for textual Pokémon generation   |
-| 4    | API Integration with Dal-e   | Wessel & Gilbert  | Integrate with Dal-e API for visual representation of Pokémon      |
-| 5    | User Authentication          | Raymon            | Implement basic user authentication for tracking users             |
-| 6    | Error Handling               | Shazib            | Implement robust error handling for API interactions               |
-| 6    | User Profiles                | Shazib            | Allow users to create profiles and save favourite Pokémon          |
+| 2    | API Integration with ChatGPT | Wessel & Gilbert  | Integrate with OpenAI ChatGPT API for textual Pokémon generation   |
+| 3    | API Integration with Dal-e   | Wessel & Gilbert  | Integrate with Dal-e API for visual representation of Pokémon      |
+| 4    | User Authentication          | Raymon            | Implement basic user authentication for tracking users             |
+| 4    | Error Handling               | Shazib            | Implement robust error handling for API interactions               |
+| 4    | User Profiles                | Shazib            | Allow users to create profiles and save favourite Pokémon          |
 
 ## Technologies
 
