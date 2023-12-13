@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreAbilityRequest;
 use App\Models\Ability;
 use Illuminate\Http\Request;
 
@@ -18,9 +19,9 @@ class AbilityController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreAbilityRequest $request)
     {
-        //
+        return Ability::create($request->validated());
     }
 
     /**

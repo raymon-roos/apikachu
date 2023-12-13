@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreGenerationRequest;
 use App\Models\Generation;
 use Illuminate\Http\Request;
 
@@ -18,9 +19,9 @@ class GenerationController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreGenerationRequest $request)
     {
-        //
+        return Generation::create($request->validated());
     }
 
     /**
