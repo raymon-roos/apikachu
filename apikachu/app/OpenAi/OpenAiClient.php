@@ -7,8 +7,8 @@ use Illuminate\Support\Facades\Log;
 
 class OpenAiClient 
 {
-    protected $apiKey;
-    protected $openAi;
+    private $apiKey;
+    private $openAi;
 
     public function __construct()
     {
