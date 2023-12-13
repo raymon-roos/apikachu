@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreGenerateRequest;
+use App\Models\Pokemon;
 use App\OpenAi\OpenAiClient;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Str;
@@ -16,24 +17,32 @@ class PokemonGeneratorController extends Controller
 
     public function generate(StoreGenerateRequest $request)
     {
-        $generatedPokemonResponse = $this->openAiClient
+        $generatedPokemon = $this->openAiClient
             ->generatePokemon($request->validated('name'));
 
-        foreach ($generatedPokemonResponse->choices as $result) {
-            $generatedPokemon = $result->message->toolCalls[0]->function->arguments;
-        }
-
-        $generatedPokemonArray = json_decode($generatedPokemon, true);
-
-        if ($request->validated('image')) {
-            $imageRequest = $this->generateImage($generatedPokemonArray['image_appearance']);
-            $base64String = $imageRequest->data[0]->b64_json;
-        }
+        Pokemon::create([
+            'name' => $generatedPokemon['name'],
+            'description' => $generatedPokemon['description'],
+            'hp' => $generatedPokemon['hp'],
+            'attack' => $generatedPokemon['attack'],
+            'defense' => $generatedPokemon['defense'],
+            'speed' => $generatedPokemon['speed'],
+            'special_attack' => $generatedPokemon['special_attack'],
+            'special_defense' => $generatedPokemon['special_defense'],
+            'image_url' => 'todo: implement image links'
+        ]);
 
         $key = 'pokemonData' . Str::random();
 
-        Cache::put($key, ['pokemon' => $generatedPokemonArray, 'image' => $base64String], 300); // 5 minutes
+        if ($request->validated('image')) {
+            $imageRequest = $this->generateImage($generatedPokemon['image_appearance']);
+            $base64String = $imageRequest->data[0]->b64_json;
 
+            Cache::put($key, ['pokemon' => $generatedPokemon, 'image' => $base64String], 300); // TODO: save just the image to storage instead of cache
+            return redirect('/pokemon?key=' . $key);
+        }
+
+        Cache::put($key, ['pokemon' => $generatedPokemon], 300); // TODO: save just the image to storage instead of cache
         return redirect('/pokemon?key=' . $key);
     }
 
