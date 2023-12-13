@@ -23,6 +23,7 @@ class StoreGenerateRequest extends FormRequest
     {
         return [
             'name' => 'required|string|max:255',
+            'image' => 'required|boolean',
         ];
     }
 }

@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\PokemonGeneratorController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 

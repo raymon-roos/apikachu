@@ -29,7 +29,7 @@
         <img src="data:image/png;base64,{{ $image }}" class="mt-4" width="500" alt="Pokemon Image">
         </div>
     @endif
-    
+
 </body>
 
 </html>
