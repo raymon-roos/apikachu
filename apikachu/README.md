@@ -27,6 +27,8 @@ Before you embark on your APIkachu adventure, make sure you have the following:
 - **Web Server:** You'll need a web server such as Apache to host the APIkachu.
 - **Database Server:** APIkachu relies on a MySQL database server, such as MariaDB,
   for storing Pokémon data.
+- **OpenAI:** APIkachu relies on Openai as its large language model and image generator. 
+To make this work you need an Openai account with credits.
 
 ## 🚀 Getting Started
 
@@ -36,8 +38,9 @@ this API welcomes trainers of all levels.
 - **Retrieve the source:**
   `git clone git@git.nexed.com:raymonroos/apikachu-deep-dive.git apikachu && cd apikachu/apikachu`
 
-- **Environment**: Run `cp .env.example .env && php artisan key:generate` to set up your
-  environment variables. Note that you have to set the right database credentials for your
+- **Environment**: Run `cp .env && php artisan key:generate` to set up your
+  environment variables. Then copy and paste the .env.example file into the new .env file you just created. 
+  Note that you have to set the right database credentials for your
   system. At the Bit Academy, we have a convention for what database user to use, but you
   may choose your own and update `.env` accordingly.
 
@@ -54,6 +57,8 @@ this API welcomes trainers of all levels.
 
 - **Launch:** Start your database and http servers. For convenience, you can also use 
   `php artisan serve` instead of the latter.
+
+- **Connect OpenAI with this project**: Follow this [link](https://platform.openai.com/api-keys) and create an Openai account then put some credits on it on this [page](https://platform.openai.com/account/billing/overview). Then create an Api key on this [page](https://platform.openai.com/api-keys) then copy and past the following at the end of your env file OPENAI_API_KEY="Your_genereated_key".
 
 - **Enjoy:** You can now explore the API at your leisure! Open `localhost/api/pokemon` in your
   browser, postman, or `curl`. 
