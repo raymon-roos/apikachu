@@ -1,8 +1,10 @@
 <?php
 
+use App\Models\Pokemon;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Storage;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,16 +17,13 @@ use Illuminate\Support\Facades\Cache;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', fn () => view('welcome'));
 
-Route::get('/pokemon', function (Request $request) {
-    $key = $request->query('key');
-    $data = Cache::get($key);
+Route::get('/pokemon/{pokemon}', function (Request $request, Pokemon $pokemon) {
+    $imagePath = "public/{$pokemon->id}.png";
 
     return view('pokemon', [
-        'pokemon' => $data['pokemon'] ?? null,
-        'image' => $data['image'] ?? null,
+        'pokemon' => $pokemon->toArray(),
+        'imageUrl' => Storage::has($imagePath) ? Storage::url($imagePath) : null,
     ]);
-});
+})->name('viewPokemon');
