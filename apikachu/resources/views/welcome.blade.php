@@ -9,8 +9,9 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
+
 <body class="bg-amber-400">
-    <div class="flex flex-col md:flex-row gap-4 max-w-lg mx-auto mt-20 bg-amber-300 p-10 rounded shadow-lg">
+    <div class=" flex flex-col md:flex-row gap-4 max-w-lg mx-auto mt-20 bg-amber-300 p-10 rounded shadow-lg">
         <form action="/api/generate" method="POST" class="col-span">
             @csrf
             <input type="text" name="name" placeholder="Name"
@@ -26,7 +27,6 @@
         </form>
 
     </div>
-
 </body>
 
 </html>
