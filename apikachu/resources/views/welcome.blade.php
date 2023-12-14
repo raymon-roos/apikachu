@@ -14,12 +14,12 @@
     <div class=" flex flex-col md:flex-row gap-4 max-w-lg mx-auto mt-20 bg-amber-300 p-10 rounded shadow-lg">
         <form action="/api/generate" method="POST" class="col-span">
             @csrf
-            <input type="text" name="name" placeholder="Name"
+            <input type="text" name="name" placeholder="Name" required
                 class="mb-4 mt-1 p-2 border outline-red-500 rounded-lg w-full">
             <div class="mb-4 space-x-2">
-                <input type="radio" name="image" value="1"
+                <input type="radio" name="image" value="1" required
                     class="text-indigo-500 focus:ring-indigo-500 h-4 w-4"> Image.
-                <input type="radio" name="image" value="0"
+                <input type="radio" name="image" value="0" required
                     class="text-indigo-500 focus:ring-indigo-500 h-4 w-4"> No image.
             </div>
             <button type="submit"
