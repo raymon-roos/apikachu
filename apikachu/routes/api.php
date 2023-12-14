@@ -20,7 +20,7 @@ Route::middleware('auth:sanctum')
 
 Route::post('/generate', [Controllers\PokemonGeneratorController::class, 'generate']);
 
-Route::resources([
+Route::apiResources([
     'pokemon' => Controllers\PokemonController::class,
     'type' => Controllers\TypeController::class,
     'ability' => Controllers\AbilityController::class,
