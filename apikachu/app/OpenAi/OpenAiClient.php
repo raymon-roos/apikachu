@@ -108,7 +108,7 @@ class OpenAiClient
                                 'description' => 'pokemon appearance for ai image prompt',
                             ],
                         ],
-                            'required' => ['name', 'description', 'hp', 'attack', 'defense', 'generation_id', 'image_appearance'],
+                            'required' => ['name', 'description', 'hp', 'attack', 'defense', 'speed', 'special_attack', 'special_defense', 'generation_id', 'image_appearance'],
                         ],
                     ],
                 ],
