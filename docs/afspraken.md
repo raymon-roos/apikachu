@@ -10,7 +10,7 @@ Dit document geeft de To do's en de deadline's weer die nodig zijn om ons projec
 
 #### Development:
 
-- [ ] **Task 1:** De nieuwe gegenereerde Pokemon hun images opslaan in de database.
+- [x] **Task 1:** De nieuwe gegenereerde Pokemon hun images opslaan in de database.
   - Deadline: '12:00 14 Dec 2023'
   - Personen Verantwoordelijk: 'Wessel & Raymon'
 - [ ] **Task 2:** Frontend website om Pokemons te vinden in website.
@@ -25,7 +25,7 @@ Dit document geeft de To do's en de deadline's weer die nodig zijn om ons projec
 
 #### Presentation:
 
-- [ ] **Task 4:** Google Slides voor presentatie klaar.
+- [x] **Task 4:** Google Slides voor presentatie klaar.
   - Deadline: '17:00 14 Dec 2023'
   - Persoon Verantwoordelijk: 'Gilbert'
 - [ ] **Task 5:** Presentatie oefenen en verdelen.
