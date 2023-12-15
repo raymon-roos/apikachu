@@ -67,6 +67,7 @@ For convenient testing of all the API endpoints, follow these steps to set up th
    Use the following command to create the most recent version of the Postman collection:
    ```bash
    php artisan vendor:publish --provider="AndreasElia\PostmanGenerator\PostmanGeneratorServiceProvider" --tag="postman-config" && php artisan export:postman
+   ```
 
 - **Launch:** Start your database and http servers. For convenience, you can also use 
   `php artisan serve` instead of the latter.
