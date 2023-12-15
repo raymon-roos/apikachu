@@ -59,7 +59,7 @@ this API welcomes trainers of all levels.
   slow, as we don't want to spam their api. The data is saved to disk for future
   reuse. 
 
-## Postman Collection Setup
+## 📬 Postman Collection Setup
 
 For convenient testing of all the API endpoints, follow these steps to set up the Postman collection:
 
