@@ -1,3 +1,23 @@
+### Bit Academy Deep Dive 
+
+This is a modified version of our special, collaborative, one-week project at the Bit
+Academy. The goal was to build a Pokémon themed product for aiding fictional, in-universe
+research. We strayed somewhat from the fictional customer's problem statement, costing us
+first place. 
+
+In short, we implemented API connections to both ChatGPT and Dall-e. A user can submit
+a short word or phrase, which will used by ChatGPT to come up with an original Pokémon,
+along with a description of its appearance. That description is passed on to Dall-e, which
+produces an image for the custom Pokémon.
+
+Apart from that, we have most of a functional read-only json api for Pokémon data, and
+a basic web frontend for generating and viewing Pokémon. Pokémon data was retrieved from
+https://pokeapi.co/api/v2/ .
+
+The project's original README continues below: 
+
+-----------------------------------------------------
+
 # APIkachu: Unleash Your Custom Pokémon Adventure! 🚀
 
 Welcome to APIkachu, where the magic of custom Pokémon creation comes to life!
@@ -74,11 +94,6 @@ For convenient testing of all the API endpoints, follow these steps to set up th
 
 - **Enjoy:** You can now explore the API at your leisure! Open `localhost/api/pokemon` in your
   browser, postman, or `curl`. 
-
-## 🌐 Project Links
-
-- [Documentation](./../docs)
-- [Project Board](https://apikachu.atlassian.net/jira/software/projects/SCRUM/boards/1)
 
 ## 🎉 Join the APIkachu Revolution!
 
